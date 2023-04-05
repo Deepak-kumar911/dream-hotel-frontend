@@ -2,7 +2,7 @@ import axios from 'axios';
 import joi from 'joi';
 import jwtDecode from 'jwt-decode'
 import { toast } from 'react-toastify'
-const endPoint = "http://localhost:8000";
+const endPoint = "https://dream-hotel-backend-l86e.vercel.app";
 const key = "token"
 
 
