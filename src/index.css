@@ -10,12 +10,3 @@
   overflow: hidden;
 }
 
-.app{
-  background-image: url('./images/img14.jpg');
-  height: 94vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-clip: content-box;
-  background-origin: content-box;
-}

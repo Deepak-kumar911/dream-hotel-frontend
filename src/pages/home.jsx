@@ -24,10 +24,13 @@ function Home() {
     <>
     <div className="relative">
     <div className={`app w-[100%]`}>
-     <div className='flex flex-col h-[83%] md:h-[90%] items-center justify-center text-center mx-2'>
+      <div className="relative">
+      <img src="/images/bgImg.jpg" className="bg-center relative z-10  h-[94vh] w-[100%]" alt="" srcset="" />
+     <div className='flex flex-col absolute z-20 -mt-[60vh] md:-mt-[60vh] w-[100%] mx-auto items-center justify-center text-center'>
       <h1 className='text-3xl text-white'>Dream Hotel provide clean & comfort Room!</h1>
       <p className='w-[90%] md:w-[40%] text-center text-md md:text-lg text-yellow-300'>If you looking for room for spending times outside from home with less expensive, comfort and with nature friendly enviroment. </p>
      <button onClick={handleClick} className='px-4 py-1 text-lg mt-5  hover:bg-gradient-to-l text-white bg-gradient-to-r from-indigo-600 to-red-600 rounded-md'>Book Now</button>
+     </div>
      </div>
     </div>
      
