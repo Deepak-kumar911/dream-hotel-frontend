@@ -23,7 +23,7 @@ function Home() {
   return (
     <>
     <div className="relative">
-    <div className={`app bg-[url('./images/img.jpg')]  w-[100%] h-[94vh] bg-origin-content bg-no-repeat bg-cover bg-center`}>
+    <div className={`app w-[100%]`}>
      <div className='flex flex-col h-[83%] md:h-[90%] items-center justify-center text-center mx-2'>
       <h1 className='text-3xl text-white'>Dream Hotel provide clean & comfort Room!</h1>
       <p className='w-[90%] md:w-[40%] text-center text-md md:text-lg text-yellow-300'>If you looking for room for spending times outside from home with less expensive, comfort and with nature friendly enviroment. </p>
