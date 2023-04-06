@@ -12,7 +12,7 @@ export const Card = ({room}) => {
     <div  className="flex flex-col md:flex-row md:justify-between w-[100%] p-2 h-[100%] border-2 bg-red-500 gap-x-4 hover:bg-black hover:text-white rounded-md">
     <div className="flex w-[100%] md:w-[50%] text-center items-center justify-between ">
         <div className="flex flex-col items-center mx-auto w-[80%]">
-        <img src={`/images/${room?.name==="normal" ? "img2" : room?.name==="premium" ? "img1" : "img8"}.jpg`} className="w-[100%] h-[20vh] z-20" alt="image"/>
+        <img src={`/images/${room?.name==="normal" ? "img2" : room?.name==="premium" ? "img8" : "img1"}.jpg`} className="w-[100%] h-[20vh] z-20" alt="image"/>
         <div className="bg-indigo-600 w-[100%] h-[20vh] z-10 -mt-[18vh] ml-[5vh]"></div>
         </div>
     </div>

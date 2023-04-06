@@ -30,7 +30,7 @@ export const Register = () => {
 
   return (
     <div className=' w-[100%] h-[75vh] flex  items-center justify-center bg-white'>
-    <div className='flex flex-col items-center justify-center w-[35%] p-3 gap-y-2 bg-gradient-to-r from-red-600 to-indigo-600 rounded-md text-white'>
+    <div className='flex flex-col items-center justify-center w-[85%] md:w-[30%] p-3 gap-y-2 bg-gradient-to-r from-red-600 to-indigo-600 rounded-md text-white'>
       <h1 className='text-center text-2xl'>Sign-Up</h1>
       <form onSubmit={handleSubmit} className='flex flex-col w-[100%] gap-y-2'>
         <input type="text" name="name" id="name1" onChange={handleChange} value={data.name} placeholder='Your Name' className='bg-gradient-to-r from-red-600 to-indigo-600 border-2 rounded-md outline-none h-[2rem] px-2 placeholder-white  border-white'/>

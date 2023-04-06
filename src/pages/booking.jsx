@@ -79,6 +79,7 @@ export const Booking = () => {
 
     const cancelBooking = ()=>{
         setConfirm(false)
+        setData({...data,no_of_rooms:""})
         setDisable(false)
     }
 

@@ -24,10 +24,10 @@ export const Dashboard = () => {
         }fetch()
     },[])
 
-    const graphData = [["Date","Number of Bookings"]]
+    const graphData = [["Date","No. of bookings"]]
    const filterGraphData = (data)=>{
-     let date = new Date(new Date().toLocaleDateString()).getTime()
-     for(let i=0;i<=7;i++){
+     let date = new Date(new Date().toLocaleDateString()).getTime()- (2*1000*3600*24)
+     for(let i=0;i<=9;i++){
        let no_of_rooms=0
        for(let room of data){
          const result = room.slots.filter(slot=>{
@@ -39,7 +39,7 @@ export const Dashboard = () => {
          }
        }
        graphData.push([new Date(date).toLocaleDateString(),no_of_rooms])
-       date= date-(1000*3600*24)
+       date= date+(1000*3600*24)
      }
    }
    filterGraphData(data)
@@ -146,12 +146,12 @@ function totalRoomBooked(startDate,endDate){
         )}
 
     </div>
-    <div className='mt-6'>
+    <div className='mt-7 p-2'>
       <Chart
       chartType='Line'
       data={graphData}
       width="100%"
-      options={{series:{0:{axis:"booking"},1:{axis:"date"}}}}
+      options={{curveType:"function",legend:{position:"bottom"}}}
       height="300px"
       legendToggle
       />
