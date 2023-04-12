@@ -1,4 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom'
+import { Auth } from "../App";
+import { toast } from 'react-toastify'
 import { Slide } from 'react-slideshow-image';
 import { Form } from '../common/form';
 import '../../node_modules/react-slideshow-image/dist/styles.css';
@@ -8,11 +11,8 @@ import { GrServices } from 'react-icons/gr';
 import { BsShieldLock } from 'react-icons/bs';
 import { MdHomeRepairService } from 'react-icons/md'
 import { useParams } from 'react-router-dom';
-import { getRoomDetailsByName, getRoomDetails } from '../auth';
+import { getRoomDetailsByName, getRoomDetails,getAllRoom } from '../auth';
 import { validateBooking,bookRoom } from '../auth';
-import { Auth } from "../App";
-import { toast } from 'react-toastify'
-import {useNavigate} from 'react-router-dom'
 
 
 export const Booking = () => {
@@ -22,6 +22,7 @@ export const Booking = () => {
     const param = useParams()
     //for get data for book room
     const [data, setData] = useState({ room: "normal", userId: "", endDate: new Date(), startDate: new Date(), no_of_rooms: "" })
+    const [allRoom,setAllRoom] =useState([])
     const [roomDetail, setRoomDetails] = useState([])
     const [bookDetails,setBookDetails] = useState([])
     const [confirm,setConfirm] = useState(false)
@@ -43,17 +44,19 @@ export const Booking = () => {
                 setData({ ...data, room: "normal" })
                 const { data: res } = await getRoomDetailsByName(data.room)
                 setRoomDetails(...res)
+                const {data:result} = await getAllRoom()
+                console.log("result",result);
+                setAllRoom(result)
                 setParams(false)
             }
         } fetch()
     }, [param])
 
 
+
+
     useEffect(()=>{
-        async function fetch() {
-            const { data: res } = await getRoomDetailsByName(data.room)
-            setRoomDetails(...res)
-        }fetch()
+
     },[data.room])
 
     const validateLogin = async () => {
@@ -90,13 +93,21 @@ export const Booking = () => {
             toast.success(`Your ${data.room} room is booked`)
             setConfirm(false);
             setDisable(false)
+            setData({...data,no_of_rooms:""})
+
         }
     }
 
 
+    // console.log("set",setAllRoom);
+
     const handleOnChange = (e) => {
         let { name, value } = e.target
         setData({ ...data, [name]: value })
+        if(name==="room"){
+         const filterData =  allRoom.filter(room=>room.name===value)
+         setRoomDetails(...filterData)
+        }
     }
 
 

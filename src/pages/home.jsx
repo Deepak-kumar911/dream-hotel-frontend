@@ -25,7 +25,7 @@ function Home() {
     <div className="relative">
     <div className={`app w-[100%]`}>
       <div className="relative">
-      <img src="/images/bgImg.jpg" className="bg-center relative z-10  h-[94vh] w-[100%]" alt="" srcset="" />
+      <img src="/images/bgImg.jpg" className="bg-center relative z-10  h-[94vh] w-[100%]" alt="backgroundgImage" srcSet="bgimage" />
      <div className='flex flex-col absolute z-20 -mt-[60vh] md:-mt-[60vh] w-[100%] mx-auto items-center justify-center text-center'>
       <h1 className='text-3xl text-white'>Dream Hotel provide clean & comfort Room!</h1>
       <p className='w-[90%] md:w-[40%] text-center text-md md:text-lg text-yellow-300'>If you looking for room for spending times outside from home with less expensive, comfort and with nature friendly enviroment. </p>

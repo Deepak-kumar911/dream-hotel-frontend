@@ -24,14 +24,15 @@ export const Dashboard = () => {
         }fetch()
     },[])
 
-    const graphData = [["Date","No. of bookings"]]
+    const graphData = [["Date","bookings"]]
    const filterGraphData = (data)=>{
      let date = new Date(new Date().toLocaleDateString()).getTime()- (2*1000*3600*24)
      for(let i=0;i<=9;i++){
        let no_of_rooms=0
        for(let room of data){
          const result = room.slots.filter(slot=>{
-        return  new Date(slot.startDate).getTime()===date})
+          const DateString = new Date(slot.startDate).toLocaleDateString()
+        return  new Date(DateString).getTime()===date})
          if(result.length!==0){
            result.map(slot=>{
              no_of_rooms+=slot.no_of_rooms
@@ -43,8 +44,6 @@ export const Dashboard = () => {
      }
    }
    filterGraphData(data)
-
-
     useEffect(()=>{
       function fetchDetails() {
         if(select==="today"){
@@ -77,7 +76,6 @@ export const Dashboard = () => {
   return `${year}/${month}/${date1}`
 }
 
-
 function totalRoomBooked(startDate,endDate){
   const result = data.map(room=>{
             if(endDate){
@@ -94,7 +92,9 @@ function totalRoomBooked(startDate,endDate){
               }
               return {detail:room,sumOfRoom,diff,cancel}
             }else{
-              let filterRoom = room.slots.filter(slot=> new Date(slot.startDate).getTime()===new Date(startDate).getTime())
+              let filterRoom = room.slots.filter(slot=> {
+               const slotDateString = new Date(slot.startDate).toLocaleDateString()
+               return  new Date(slotDateString).getTime()===new Date(startDate).getTime()})
               let cancel = 0
               for(let user of filterRoom){
                 if(!user.booked){

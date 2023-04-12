@@ -50,7 +50,9 @@ export const ListCustomer = () => {
         )
         return  {room, customer: obj}
       } else {
-        const obj = room.slots.filter(customer => new Date(customer.startDate).getTime() === new Date(startDate).getTime())
+        const obj = room.slots.filter(customer => {
+          const slotDateString = new Date(customer.startDate).toLocaleDateString()
+         return new Date(slotDateString).getTime() === new Date(startDate).getTime()})
        return  {room, customer: obj} 
       }
     })
@@ -152,7 +154,7 @@ export const ListCustomer = () => {
             </tr>
         </thead>
         <tbody>
-          {original.map(detail=>detail.map((value,ind)=><tr key={value._id} className={`${value.booked ? "bg-white" : "bg-red-500"  }  border-b dark:bg-gray-800 dark:border-gray-700`}>
+          {original.map(detail=>detail.map((value,ind)=><tr key={value._id} className={`${value.booked ? "bg-white" : "bg-red-500 text-white"  }  border-b dark:bg-gray-800 dark:border-gray-700`}>
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 {value.userName}
                 </th>

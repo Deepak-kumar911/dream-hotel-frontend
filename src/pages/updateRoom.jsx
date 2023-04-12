@@ -14,7 +14,6 @@ export const UpdateRoom = () => {
               
               setDetails(res.data)
                 // setDetails(res.data)
-                console.log(res.data);
             }else{
                 navigate("/")
             }
